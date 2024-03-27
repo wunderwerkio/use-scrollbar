@@ -4,5 +4,7 @@
   "initialVersions": {
     "@wunderwerk/use-scrollbar": "0.1.0-beta.2"
   },
-  "changesets": []
+  "changesets": [
+    "eighty-scissors-return"
+  ]
 }
