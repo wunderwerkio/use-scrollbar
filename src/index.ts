@@ -15,11 +15,11 @@ export type ScrollPosition = "start" | "middle" | "end";
  * @param options.horizontal - Whether the scrollbar is horizontal (Default: false).
  * @param options.useWindow - Whether the window should be used as scrollable element (Default: false).
  */
-export const useScrollbar = <TElement extends HTMLElement = HTMLDivElement>({
+export const useScrollbar = <TElement extends HTMLElement = HTMLElement>({
   horizontal = false,
   useWindow = false,
 }: Options = {}) => {
-  const scrollableRef = useRef<TElement | HTMLElement | null>(null);
+  const scrollableRef = useRef<TElement | null>(null);
   const scrollbarTrackRef = useRef<HTMLDivElement | null>(null);
   const scrollbarSliderRef = useRef<HTMLDivElement | null>(null);
 
@@ -111,7 +111,7 @@ export const useScrollbar = <TElement extends HTMLElement = HTMLDivElement>({
   // scrollable element. Also kick off the initial calculation.
   useEffect(() => {
     if (useWindow) {
-      scrollableRef.current = document.documentElement;
+      scrollableRef.current = document.documentElement as TElement;
     }
 
     if (!scrollableRef.current) {
